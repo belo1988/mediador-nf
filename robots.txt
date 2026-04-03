@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /gracias.html
+Disallow: /privacidad.html
+Disallow: /aviso-legal.html
+
+Sitemap: https://natalifiallo.es/sitemap.xml
