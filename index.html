@@ -542,26 +542,28 @@
 
     /* ===== PROCESO ===== */
     .proceso-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      align-items: flex-start;
       gap: 0;
       position: relative;
     }
-    .proceso-grid::before {
-      content: '';
-      position: absolute;
-      top: 40px;
-      left: calc(25% / 2);
-      right: calc(25% / 2);
-      height: 2px;
-      background: rgba(201,168,76,0.3);
-      z-index: 0;
-    }
     .proceso-step {
+      flex: 1;
       position: relative;
-      z-index: 1;
-      padding: 0 28px;
+      padding: 0 24px;
       text-align: center;
+    }
+    .proceso-arrow {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding-top: 28px;
+      color: var(--accent);
+      opacity: 0.6;
+    }
+    .proceso-arrow svg {
+      width: 28px;
+      height: 28px;
     }
     .proceso-num {
       width: 80px;
@@ -788,8 +790,9 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .ventajas-grid { grid-template-columns: repeat(2, 1fr); }
-      .proceso-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-      .proceso-grid::before { display: none; }
+      .proceso-grid { flex-wrap: wrap; gap: 16px; }
+      .proceso-step { flex: 1 1 calc(50% - 48px); }
+      .proceso-arrow:nth-child(4) { display: none; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
@@ -811,7 +814,9 @@
       .mediacion-badge { position: static; margin-top: 16px; display: inline-block; }
       .areas-grid { grid-template-columns: 1fr; }
       .ventajas-grid { grid-template-columns: 1fr; }
-      .proceso-grid { grid-template-columns: 1fr; gap: 28px; }
+      .proceso-grid { flex-direction: column; align-items: center; gap: 0; }
+      .proceso-step { width: 100%; max-width: 360px; }
+      .proceso-arrow { transform: rotate(90deg); padding-top: 0; padding: 4px 0; }
       .testimonios-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
@@ -1025,15 +1030,30 @@
             <h3>Consulta inicial</h3>
             <p>Análisis gratuito de la situación para evaluar la viabilidad de la mediación y explicar el proceso sin compromiso.</p>
           </div>
+          <div class="proceso-arrow" aria-hidden="true">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <div class="proceso-step">
             <div class="proceso-num">02</div>
             <h3>Sesión informativa</h3>
             <p>Levantamiento del acta de inicio. Ambas partes conocen las reglas del proceso, sus derechos y el marco de confidencialidad.</p>
           </div>
+          <div class="proceso-arrow" aria-hidden="true">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <div class="proceso-step">
             <div class="proceso-num">03</div>
             <h3>Sesiones de mediación</h3>
             <p>Entre 2 y 4 sesiones en las que se trabajan los intereses reales de cada parte y se construyen soluciones conjuntas.</p>
+          </div>
+          <div class="proceso-arrow" aria-hidden="true">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <div class="proceso-step">
             <div class="proceso-num">04</div>
